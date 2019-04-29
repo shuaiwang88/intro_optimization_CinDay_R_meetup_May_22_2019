@@ -2,28 +2,24 @@
 \usepackage{xcolor}
 
 \usepackage[utf8]{inputenc}
-
+\usepackage{multicol}
 \usepackage{utopia} %font utopia imported
 
-% \usetheme{Madrid}
-\usetheme[width=1cm]{PaloAlto} 
+\usetheme{Madrid}
+% \usetheme[width=1cm]{PaloAlto} 
 \definecolor{RBlue}{RGB}{44, 108, 188} 
 \usecolortheme[named=RBlue]{structure}
 %------------------------------------------------------------
 %This block of code defines the information to appear in the
 %Title page
-\title[Intro] %optional
-{Introduction of optimization for R users!}
+\title[]{Introduction of Mathematical Optimization for R users!}
 
 \subtitle{library(rcbc) \& minizinc}
 
-\author[] % (optional)
-{Shuai Wang \and Eugene Pytigorsky}
+\author[]{Shuai Wang \and Eugene Pyatigorsky}
 
-\institute[VFU] % (optional)
-{
-84.51 Operations Research
-}
+\institute[] % (optional)
+{Kroger/84.51 Operations Research}
 
 \date[] % (optional)
 {CinDay R User Meetup, May 22 2019}
@@ -65,20 +61,18 @@
 %---------------------------------------------------------
 
 
-\section{What's mathematical optimization}
+\section{Mathematical Optimization}
 
 %---------------------------------------------------------
-%Changing visivility of the text
 \begin{frame}
-\frametitle{Sample frame title}
-This is a text in second frame. For the sake of showing an example.
+\frametitle{What's mathematical optimization anyway?}
+“Optimization” comes from the same root as “optimal”, which means best. When you
+optimize something, you are “making it best”.
 
-\begin{itemize}
-    \item<1-> Text visible on slide 1
-    \item<2-> Text visible on slide 2
-    \item<3> Text visible on slides 3
-    \item<4-> Text visible on slide 4
-\end{itemize}
+
+But “best” can vary. If you’re a football player, you might want to maximize your
+running yards, and also minimize your fumbles. Both maximizing and minimizing are types
+of optimization problems.
 \end{frame}
 
 %---------------------------------------------------------
@@ -87,13 +81,66 @@ This is a text in second frame. For the sake of showing an example.
 %---------------------------------------------------------
 %Example of the \pause command
 \begin{frame}
-In this slide \pause
+\frametitle{Mathematical Optimization in the “Real World”}
+Mathematical Optimization is a branch of applied mathematics which is useful in many different fields. Here are a few examples:
+ \begin{multicols}{2}
+    \begin{itemize}
+        \item Manufacturing
+        \item Production
+        \item Inventory control
+        \item Transportation
+        \item Scheduling
+        \item Networks
+        \item Finance
+        \item Economics
+        \item Control engineering
+        \item Marketing
+        \item Policy Modeling
+        \item Mechanics
+    \end{itemize}
+    \end{multicols}
 
-the text will be partially visible \pause
-
-And finally everything will be there
 \end{frame}
-%---------------------------------------------------------
+
+
+\begin{frame}{Optimization Model Components}
+Your basic optimization problem consists of: 
+\begin{enumerate}
+    \item The objective function, {\color{red} f(x)}, which is the output you’re trying to maximize or minimize. e.g. maximize the gross profit margin; minimize travel distance of a pizza delivery car. 
+    
+    \item  Variables,  {\color{red}$x_1, x_2, x_3$} and so on, which are the inputs – things you can control. 
+    
+    \item Constraints, which are equations that place limits on how big or small some variables can get. e.g. The pizza delivery should be on time.
+    
+    
+\end{enumerate}
+
+
+\end{frame}
+
+
+\begin{frame}{Optimization Example}
+    A football coach is planning practices for his running backs.
+\begin{itemize}
+    \item His main goal is to maximize running yards – this will become his
+    {\color{red} objective function} .
+    
+    \item He can make his athletes spend practice time in the weight room; running 
+    sprints; or practicing ball protection. The amount of time spent on each is a 
+    {\color{red} variable}.
+    
+    \item  However, there are limits to the total amount of time he has. Also, if he
+    completely sacrifices ball protection he may see running yards go up, but also 
+    fumbles, so he may place an upper limit on the amount of fumbles he considers 
+    acceptable. These are {\color{red} constraints}.
+\end{itemize}
+
+Note that the variables influence the objective function and the constraints place limits on the domain of the variables.
+\end{frame}
+
+
+
+
 
 \section{Second section}
 
