@@ -1,14 +1,42 @@
-\documentclass[xcolor=dvipsnames]{beamer}
+\documentclass[xcolor=dvipsnames,aspectratio=169]{beamer}
 \usepackage{xcolor}
 
 \usepackage[utf8]{inputenc}
 \usepackage{multicol}
 \usepackage{utopia} %font utopia imported
-
-\usetheme{Berkeley} %Madrid
-% \usetheme[width=1cm]{PaloAlto} 
+% \usetheme{Madrid} %Madrid %Berkeley
+\usetheme[width=1.5cm]{Berkeley} 
 \definecolor{RBlue}{RGB}{44, 108, 188} 
 \usecolortheme[named=RBlue]{structure}
+\usepackage{listings}
+\usepackage{color}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
 %------------------------------------------------------------
 %This block of code defines the information to appear in the
 %Title page
@@ -19,12 +47,12 @@
 \author[]{Shuai Wang \and Eugene Pyatigorsky}
 
 \institute[] % (optional)
-{Kroger/84.51 Operations Research}
+{84.51 Operations Research}
 
 \date[] % (optional)
 {CinDay R User Meetup, May 22 2019}
 
-\logo{\includegraphics[height=1.6cm]{CinDayR_logo.png}}
+\logo{\includegraphics[height=1.5cm]{CinDayR_logo.png}}
 
 %End of title page configuration block
 %------------------------------------------------------------
@@ -123,7 +151,7 @@ Your basic optimization problem consists of:
     A football coach is planning practices for his running backs.
 \begin{itemize}
     \item His main goal is to maximize running yards – this will become his
-    {\color{red} objective function} .
+    {\color{red} objective function}.
     
     \item He can make his athletes spend practice time in the weight room; running 
     sprints; or practicing ball protection. The amount of time spent on each is a 
@@ -139,10 +167,66 @@ Note that the variables influence the objective function and the constraints pla
 \end{frame}
 
 
-
+%---------------------------------------------------------
 \section{Using R to model optimization problem}
 
-%---------------------------------------------------------
+\begin{frame}{Knapsack problem}
+\begin{itemize}
+    \item You only bring one knapsack with a capacity 
+    limit to rob a bank. 
+    \item Different gold has various amount of 
+    value and weight.
+    \item Try to get as much value as possible.
+    \item So, which ones to choose with the capacity limit of the 
+    knapsack. 
+\end{itemize}
+
+\begin{figure}
+\centering
+
+\vspace*{-0.5cm}
+\includegraphics[scale=0.6]{knapsack-problem.png}
+
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{Knapsack problem math modeling}
+KP has the
+following Integer Linear Programming (ILP) formulation:
+
+\begin{gather}
+\text{maximize \ \ \ }\sum_{j\in N}p_{j}x_{j}\text{ \ \ \ \ \ \ \ }
+\label{eq:ILP1} \\
+\text{subject to \ \ }\sum_{j\in N}w_{j}x_{j}\leq c  \label{eq:ILP2} \\
+\text{ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }x_{j}\in \{0,1\},%
+\text{ \ \ }j\in N,  \label{eq:ILP3}
+\end{gather}%
+where each binary variable $x_{j}$, $j\in N$, is equal to 1 if and only if
+item $j$ is selected.
+$p_{j}$: price/value of each item; $w_{j}$: weight of each 
+item. 
+
+We cannot take all items because the total
+weight of the chosen items cannot exceed the knapsack 
+capacity $c$.
+    
+\end{frame}
+
+\begin{frame}{Using library(rcbc)}
+ \includegraphics[height =7cm]{knapsack_R.png}
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
 %Highlighting text
 \begin{frame}
 \frametitle{Sample frame title}
