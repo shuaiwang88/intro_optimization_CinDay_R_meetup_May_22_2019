@@ -230,11 +230,22 @@ high-level, solver-independent way.
 \begin{figure}
     \centering
 \includegraphics[height =4.4cm]{Minizinc_knapsack.png}
-    \caption{Solve KP using Minizinc}
+    % \caption{Solve KP using Minizinc}
     \label{fig:minizinc}
 \end{figure}
-
+ 
 \end{frame}
 
+
+\begin{frame}{Linking Minizinc with R}
+Minizinc requires a unique data format to feed into the model as 
+input. 
+In order to make the best use of the general purpose language's data
+processing, visiulization function, the api is needed.
+
+Only python's pymzn exists.
+
+Eugene and I wrote an r package to 
+\end{frame}
 
 \end{document}
