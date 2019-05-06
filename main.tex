@@ -5,42 +5,16 @@
 \usepackage{multicol}
 \usepackage{utopia} %font utopia imported
 % \usetheme{Madrid} %Madrid %Berkeley
-\usetheme[width=1.5cm]{Berkeley} 
+\usetheme[width=1.5cm]{Madrid} 
 \definecolor{RBlue}{RGB}{44, 108, 188} 
 \usecolortheme[named=RBlue]{structure}
 \usepackage{listings}
-\usepackage{color}
- 
-\definecolor{codegreen}{rgb}{0,0.6,0}
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
- 
-\lstdefinestyle{mystyle}{
-    backgroundcolor=\color{backcolour},   
-    commentstyle=\color{codegreen},
-    keywordstyle=\color{magenta},
-    numberstyle=\tiny\color{codegray},
-    stringstyle=\color{codepurple},
-    basicstyle=\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=5pt,                  
-    showspaces=false,                
-    showstringspaces=false,
-    showtabs=false,                  
-    tabsize=2
-}
- 
-\lstset{style=mystyle}
+
 
 %------------------------------------------------------------
 %This block of code defines the information to appear in the
 %Title page
-\title[]{A Gentle Introduction of Mathematical Optimization for R users!}
+\title[]{A Gentle Introduction of Mathematical Optimization for R Users}
 
 \subtitle{library(rcbc) \& minizinc}
 
@@ -221,20 +195,59 @@ https://github.com/dirkschumacher/rcbc
 
 
 \begin{frame}{Minizinc: The Right Tool for the Right Job.}
-MiniZinc is a free and open-source constraint modeling language.
+Minizinc is a free and open-source constraint modeling language.
 
-You can use MiniZinc to model constraint 
+You can use Minizinc to model constraint 
 satisfaction and optimization problems in a 
 high-level, solver-independent way.
 
-\begin{figure}
+    \begin{figure}
     \centering
-\includegraphics[height =4.4cm]{Minizinc_knapsack.png}
-    \caption{Solve KP using Minizinc}
-    \label{fig:minizinc}
-\end{figure}
+        \includegraphics[height =4.4cm]{Minizinc_knapsack.png}
+    \end{figure}
+\end{frame}
+
+
+\begin{frame}{Knapsack problem application}
+    
+In any real-world problems where you have resources with certain values
+and you want to waste as little as possible.
+    \begin{itemize}
+        \item Shipping containers, to be packed as efficiently as possible.
+        \item To cut large  pieces of materials into smaller packages (paper, metal, wood-logs).
+        \item To optimize portfolios (which shares and how 
+        many should you buy).
+
+    \end{itemize}
 
 \end{frame}
 
+
+\begin{frame}{Minizinc with R}
+   \begin{itemize}
+       \item Using separate data file with non-standard format. 
+        
+       \includegraphics[scale = 0.65]{minizinc_data.PNG} 
+   \end{itemize}
+    
+\end{frame}
+
+
+
+\begin{frame}{Frame Title}
+    
+\end{frame}
+
+\begin{frame}{Frame Title}
+    
+\end{frame}
+
+\begin{frame}{Frame Title}
+    
+\end{frame}
+
+\begin{frame}{Frame Title}
+    
+\end{frame}
 
 \end{document}
