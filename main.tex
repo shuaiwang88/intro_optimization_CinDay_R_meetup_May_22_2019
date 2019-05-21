@@ -1,5 +1,6 @@
 \documentclass[xcolor=dvipsnames,aspectratio=169]{beamer}
 \usepackage{xcolor}
+\usepackage{hyperref}
 
 \usepackage[utf8]{inputenc}
 \usepackage{multicol}
@@ -16,7 +17,11 @@
 %Title page
 \title[]{A Gentle Introduction of Mathematical Optimization for R Users}
 
-\subtitle{library(rcbc) \& minizinc}
+\subtitle{library(rcbc) \& minizinc 
+\newline
+
+\href{https://github.com/shuaiwang88/intro_optimization_CinDay_R_meetup_May_22_2019}[Code]
+}
 
 \author[]{Shuai Wang \and Eugene Pyatigorsky}
 
@@ -68,13 +73,19 @@
 %---------------------------------------------------------
 \begin{frame}
 \frametitle{What's mathematical optimization anyway?}
-“Optimization” comes from the same root as “optimal”, which means best. When you
+
+\begin{itemize}
+    \item “Optimization” comes from the same root as “optimal”, which means best. When you
 optimize something, you are “making it best”.
-
-
-But “best” can vary. If you’re a football player, you might want to maximize your
+ 
+ 
+\item But “best” can vary. If you’re a football player, you might want to maximize your
 running yards, and also minimize your fumbles. Both maximizing and minimizing are types
 of optimization problems.
+\end{itemize}
+
+
+
 \end{frame}
 
 %---------------------------------------------------------
@@ -225,7 +236,7 @@ and you want to waste as little as possible.
 
 \begin{frame}{Minizinc with R}
    \begin{itemize}
-       \item Using separate data file with non-standard format. 
+       \item Minizinc used a data file with non-standard format. 
         
        \includegraphics[scale = 0.65]{minizinc_data.PNG} 
    \end{itemize}
