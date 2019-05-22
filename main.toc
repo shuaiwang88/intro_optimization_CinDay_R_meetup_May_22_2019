@@ -1,2 +1,0 @@
-\beamer@sectionintoc {1}{Mathematical Optimization}{3}{0}{1}
-\beamer@sectionintoc {2}{Using R to model optimization problem}{8}{0}{2}
