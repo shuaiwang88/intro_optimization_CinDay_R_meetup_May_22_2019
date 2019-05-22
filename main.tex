@@ -15,12 +15,9 @@
 %------------------------------------------------------------
 %This block of code defines the information to appear in the
 %Title page
-\title[]{A Gentle Introduction of Mathematical Optimization for R Users}
+\title[]{A Gentle Introduction to Modern Optimization Tools in R}
 
-\subtitle{library(rcbc) \& minizinc 
-\newline
-
-\href{https://github.com/shuaiwang88/intro_optimization_CinDay_R_meetup_May_22_2019}[Code]
+\subtitle{rcbc \& minizinc 
 }
 
 \author[]{Shuai Wang \and Eugene Pyatigorsky}
@@ -198,9 +195,48 @@ capacity $c$.
     
 \end{frame}
 
+\begin{frame}{Common solvers for linear and integer optimization problems}
+\begin{multicols}{2}
+
+\textbf{Commercial:}
+\begin{itemize}
+    \item IBM CPLEX 
+     \item Gurobi
+     \item FICO EXPRESS
+     \item MOSEK
+\end{itemize}
+    
+\textbf{Open-Source:}
+
+\begin{itemize}
+    \item SCIP (commercial use restriction)
+    \item GLPK 
+    \item COIN-OR /CBC
+    \item COIN-OR/SYMPHONY
+\end{itemize}
+\columnbreak
+        \includegraphics[width=80mm, height = 70mm ]{benchmark.png}
+
+\end{multicols}
+\end{frame}
+
+
+\begin{frame}{Solver Benchmark}
+\includegraphics[width=140mm, height = 60mm]{benchmark2.PNG}
+    
+\end{frame}
+
+
 \begin{frame}{Using library(rcbc)}
+
+
 https://github.com/dirkschumacher/rcbc
- \includegraphics[height =6.5cm]{knapsack.png}
+
+\begin{figure}[t]
+  \includegraphics[height =6.5cm]{knapsack.png}
+
+\centering
+\end{figure}
 \end{frame}
 
 
@@ -233,32 +269,53 @@ and you want to waste as little as possible.
 
 \end{frame}
 
+\begin{frame}{A Typical Resource Planning Problem}
+        \begin{itemize}
+            \item  How much of each kind of product to make to maximize profit where manufacturing a product consumes varying amounts of some fixed resources
+            \item Minizinc uses a data file with non-standard format
+            \begin{multicols}{2}
+            \includegraphics[width = 70mm ]{mz_production_data.png}
+            \columnbreak
+            
+            \includegraphics[width = 40mm]{cake.jpg}
+            \end{multicols}
+        \end{itemize}
 
-\begin{frame}{Minizinc with R}
+\end{frame}
+
+\begin{frame}{Easy to Express in Minizinc}
+    \begin{figure}[t]
+     \includegraphics[height = 70mm, pos = center]{mz_production_model.png}
+    \centering
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Minizinc with R: Data Templates}
    \begin{itemize}
-       \item Minizinc used a data file with non-standard format. 
-        
-       \includegraphics[scale = 0.65]{minizinc_data.PNG} 
+    \item We treat the data file (dzn) as a template to be filled in by R, using handmade casting functions
+    \item `glue` does the string interpolation
+    \includegraphics[scale = 0.65]{mz_production_data_2.png} 
    \end{itemize}
     
 \end{frame}
 
-
-
-\begin{frame}{Frame Title}
+\begin{frame}{Minizinc with R: Calling the Executable}
+   \begin{itemize}
+    \item A thin wrapper on top of the minizinc command line executable passes in the model and data files and receives a json-formatted result. 
+    \includegraphics[scale = 0.60]{mz_production_result.png} 
+   \end{itemize}
     
 \end{frame}
 
-\begin{frame}{Frame Title}
-    
-\end{frame}
-
-\begin{frame}{Frame Title}
-    
-\end{frame}
-
-\begin{frame}{Frame Title}
-    
-\end{frame}
+\begin{frame}
+ %\begin{multicols}{2}
+    Thank you!
+%\columnbreak
+\begin{figure}
+    \centering
+   \includegraphics[scale = 0.5]{thank_you.JPG}
+\end{figure}
+% \end{multicols}
+\end{frame} 
 
 \end{document}
